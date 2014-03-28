@@ -1,0 +1,47 @@
+<% if @user.errors.any? %>
+    <ul class="Signup_Errors">
+    <% for message_error in @user.errors.full_messages %>
+      <li><%= message_error %></li>
+    <% end %>
+    </ul>
+ <% end %>
+<%= form_for(@user) do |f| %>
+  <table>
+    <tr>
+      <td>
+        <%= f.text_field :firstname, :placeholder => 'First name' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :lastname, :placeholder => 'Last name' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :username, :placeholder => 'Username' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :email, :placeholder => 'Email' %>
+      </td>
+    </tr>
+    <tr>      
+      <td>
+        <%= f.password_field :password, :placeholder => 'Password' %>
+      </td>
+    </tr>
+    <tr>      
+      <td>
+        <%= f.password_field :password_confirmation, :placeholder => 'Confirm password' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <%= f.submit :Register %>
+      </td>
+    </tr>  
+  </table>
+<% end %>
+

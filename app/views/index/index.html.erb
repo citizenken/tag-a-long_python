@@ -1,0 +1,45 @@
+<h1>Welcome to Tagalong</h1>
+<%= link_to 'Login', login_path %>
+<%= form_for(:session, url: sessions_path, :html => {:id => "login_form"}) do |f| %>
+<table>
+  <tr>
+    <td>
+      <%= f.text_field :firstname, :placeholder => 'First name', :class => "user_form" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.text_field :lastname, :placeholder => 'Last name', :class => "user_form" %>
+    </td>
+  </tr>   
+  <tr>
+    <td>
+      <%= f.text_field :username_or_email, :placeholder => 'Username or Email', :class => "session_form" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.text_field :email, :placeholder => 'Email', :class => "user_form" %>
+    </td>
+  </tr>  
+  <tr>
+    <td>
+      <%= f.password_field :password, :placeholder => 'Password', :class => "session_form" %>
+    </td>
+  </tr>
+  <tr>      
+    <td>
+      <%= f.password_field :password_confirmation, :placeholder => 'Confirm password', :class => "user_form" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit :Login %>
+    </td>
+  </tr>
+</table>
+<% end %>
+<%= content_tag 'a', 'Register', :id => "reg_link" %>
+<br>
+<%= link_to 'Browse Events', events_path %>
+

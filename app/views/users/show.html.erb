@@ -1,0 +1,64 @@
+<nav>
+<%if signed_in? %>
+  <%= link_to "My Profile", current_user %>
+  <%= link_to "My Events", "#" %>
+  <%= link_to "Settings", "#" %>
+  <%= link_to "Sign Out", logout_path, method: "delete" %>
+<% else %>
+  <%= link_to login_path %>
+<% end %>
+</nav>
+<h2>Hey <%= @user.firstname %>!</h2>
+<table>
+	<tr>
+		<td>
+			<h2>Your events</h2>
+		</td>
+		<td>
+			<h2>Nearby events</h2>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3 id="new_event">Create a new event</h3>
+			<div id="new_event_form">
+				<%= form_for :event, url: sessions_path, remote: true do |f| %>
+				<table>
+					<tr>
+						<td>
+							<%= f.text_area :description, :placeholder => "Describe the event", maxlength: 140, size: "40x5", :id => "description" %>
+						</td>
+						<td>
+							<input disabled maxlength="3" size="3" value="140" id="charCounter"> Characters Left</input>
+						</td>
+					</tr>
+					<tr>
+						<td>	
+							<%= f.text_field :location, :placeholder => "Start typing your location", size: "40" %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<% options = [['Tag-a-longs?', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10+', 10]] %>
+							<%= f.select :email_provider, options_for_select(options, 0) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= f.hidden_field :creator, :value => @user.id %>
+							<%= f.submit "Create Event!" %>
+						</td>
+					</tr>
+				</table>
+				<% end %>
+			</div>
+			<ul>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+			</ul>
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>

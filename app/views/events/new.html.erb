@@ -1,0 +1,17 @@
+
+<%= form_for(:event, :url => {:controller => 'events', :action => 'create'}) do |f| %>
+  <table>
+    <tr>
+      <td>
+        <%= f.text_area :description, :placeholder_text => "Enter a short event description here", size: "8x8", :maxlength => 140 %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <%= f.submit :Register %>
+      </td>
+    </tr>  
+  </table>
+<% end %>
+

@@ -1,0 +1,20 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+<table>
+  <tr>
+    <td>
+      <%= f.text_field :username_or_email, :placeholder => 'Username or Email' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.password_field :password, :placeholder => 'Password' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit :Login %>
+    </td>
+  </tr>
+</table>
+<% end %>
+<p>New user? <%= link_to "Register now!", register_path %></p>
